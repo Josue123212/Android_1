@@ -42,53 +42,41 @@ class MainActivity : ComponentActivity() {
 fun GreetingCard() {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
             text = "Welcome to the Course!",
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold
         )
+
         Spacer(modifier = Modifier.height(16.dp))
+
         Text(
             text = "Hello, Student!",
             fontSize = 20.sp
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        TextField(
-            value = "",
-            onValueChange = {},
-            label = { Text("Enter your name") }
-        )
+
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 🔹 BOTÓN PERSONALIZADO
-        Button(
-            onClick = { /* Acción simulada */ },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF4CAF50),   // Verde principal
-                contentColor = Color.White           // Texto en blanco
-            ),
-            shape = RoundedCornerShape(20.dp),        // Bordes redondeados
-            modifier = Modifier
-                .fillMaxWidth(0.6f)                  // 60% del ancho
-                .height(55.dp),                      // Más alto
-            elevation = ButtonDefaults.buttonElevation(
-                defaultElevation = 6.dp,
-                pressedElevation = 10.dp
-            )
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
         ) {
-            Text(
-                text = "Show Greeting",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.SemiBold,
-                letterSpacing = 1.sp
-            )
+            Button(onClick = { /* Simulación de acción */ }) {
+                Text("Accept")
+            }
+            Button(onClick = { /* Simulación de acción */ }) {
+                Text("Decline")
+            }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
+
         Image(
             painter = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = "Course Image",
